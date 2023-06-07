@@ -1,11 +1,18 @@
 Package: alteRnative
 Type: Package
-Title: What the Package Does (Title Case)
-Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
+Title: Create alternative (privacy protecting) versions of social media content
+Version: 0.0.1
+Author: Luca Rossi 
+Maintainer: Luca Rossi <lucr@itu.dk>
+Description: AlteRnative uses OpenAI's APIs (for ChatGPT 3.5 Turbo and Dall-E) to create alternative version of social media content.Currenty the package has two main functions
+   one for textual content that is designed to create alternative version of tweets that protect users' privacy while maintaining the meaning - thus the research value - of the textual content.
+   The secon function creates "variations" of images that protect the privacy of anyon who is represented in the pictures while maintaining the meaning and the research value of the picture itself. 
+   The package relies on openai to query openai's API thus it expects an API key stored as OPENAI_API_KEY in the Environment.
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
+Imports: 
+    httr,
+    magick,
+    openai,
+    stringr

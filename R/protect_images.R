@@ -10,6 +10,7 @@
 
 
 require(httr)
+require(openai)
 require(magick)
 
 protect_images <- function(folder,download_pictures=F){
@@ -21,28 +22,27 @@ protect_images <- function(folder,download_pictures=F){
   mapping_table_pictures = data.frame(img=files,alternative_version=NA)
 
   for(i in 1:length(files)){
-    check_img=image_read(path = paste0(folder,files[i]))
-    if(image_info(check_img)$format != "PNG"){
+    check_img=magick::image_read(path = paste0(folder,files[i]))
+    if(magick::image_info(check_img)$format != "PNG"){
       skipped = skipped + 1
       next
     }
-    if(image_info(check_img)$filesize > 4000000){
+    if(magick::image_info(check_img)$filesize > 4000000){
       skipped = skipped + 1
       next
     }
 
 
     image = paste0(folder,files[i])
-    variation=create_image_variation(
+    variation=openai::create_image_variation(
       image = image,
       n = 1,
-      #size = "256x256",
       response_format = "url"
     )
     mapping_table_pictures$alternative_version[i] = variation$data$url
 
     if(download_pictures==T){
-      GET(variation$data$url, write_disk(path = paste0("varied_",files[i]),overwrite = T))
+      httr::GET(variation$data$url, httr::write_disk(path = paste0("varied_",files[i]),overwrite = T))
 
     }
 
