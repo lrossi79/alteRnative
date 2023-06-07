@@ -4,6 +4,14 @@ Create alternative (privacy protecting) versions of social media content
 
 `alteRnative` leverages the power of OpenAI to allow you to share social media data (for now Tweets and Images) in a way that protects privacy while preserving the informational value. Forget the days when you were forced to share only the tweet_ids to comply with annoying Twitter policies! Forget the ethical concerns of publishing the text of some sensitive tweet knowing too well that it can be simply searched online jeopardizing users' privacy! Stop worrying about adding social media pictures to your articles out of ethical concerns or lack of permission. `alteRnative` solves these problems and many more!
 
+## Install
+
+you can install `alteRnative` from GitHub:\
+
+```         
+devtools::install_github("lrossi79/alteRnative")
+```
+
 ## How does it work?
 
 `alteRnative` uses the OpenAI APIs to ask ChatGPT 3.5 or DALL-E to generate an alternative version of the content you provide. The alternative version will - usually - preserve most of the meaning of the original text and most of the visual elements of the original image, but the text will not correspond to any existing tweet (unless you have been very unlucky) and the image will nor represent any existing person or location.
