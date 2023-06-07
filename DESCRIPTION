@@ -16,3 +16,5 @@ Imports:
     magick,
     openai,
     stringr
+URL: https://github.com/lrossi79/alteRnative
+BugReports: https://github.com/lrossi79/alteRnative/issues
