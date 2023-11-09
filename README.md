@@ -27,6 +27,10 @@ Sys.setenv(
     OPENAI_API_KEY = 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
 )
 ```
+## Interface
+
+Now there is a simple Shiny interface that allows you to visualize an alternative version of a single image.
+You can launch the shiny app from the webUI folder
 
 ## Examples & Scenarios
 
