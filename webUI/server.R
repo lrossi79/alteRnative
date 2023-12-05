@@ -14,7 +14,12 @@ protect_image=function(image_path){
   #mapping_table_pictures = data.frame(img=files,alternative_version=NA)
 
   check_img=magick::image_read(path = paste0(image_path))
-  if(magick::image_info(check_img)$format != "PNG"){print("format not supported")}
+  if(magick::image_info(check_img)$format != "PNG"){
+    dir=dirname(image_path)
+    image_tmp=image_read(image_path)
+    image_png=image_convert(image_tmp,format = "png")
+    image_write(image_png,path = image_path)
+    }
   if(magick::image_info(check_img)$filesize > 4000000){print("file too large")}
   else{
     variation=openai::create_image_variation(
